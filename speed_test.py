@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Measure download throughput by fetching the same URL ten times."""
 
 import argparse

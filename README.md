@@ -14,6 +14,20 @@ Python 3.10 или новее. Сторонние пакеты не нужны.
 python speed_test.py "https://example.com/large-image.jpg"
 ```
 
+В Bash на Linux или macOS:
+
+```bash
+./speed_test.py "https://example.com/large-image.jpg"
+```
+
+В Git Bash на Windows можно запустить скрипт через установленный Python:
+
+```bash
+python speed_test.py "https://example.com/large-image.jpg"
+```
+
+Если в Git Bash доступна команда `python3`, работает и прямой запуск `./speed_test.py`.
+
 При необходимости можно изменить тайм-аут сокета для каждого запроса (по умолчанию 60 секунд):
 
 ```powershell
