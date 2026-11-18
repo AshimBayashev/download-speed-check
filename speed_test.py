@@ -11,7 +11,7 @@ from urllib.request import Request, urlopen
 
 REQUEST_COUNT = 10
 CHUNK_SIZE = 64 * 1024
-MIB = 1024 * 1024
+MB = 1_000_000
 
 
 def positive_float(value: str) -> float:
@@ -69,8 +69,9 @@ def main() -> int:
 
     print(f"Requests: {REQUEST_COUNT}")
     print(f"Average request time: {total_seconds / REQUEST_COUNT:.3f} s")
-    print(f"Downloaded: {total_bytes} bytes ({total_bytes / MIB:.3f} MiB)")
-    print(f"Download speed: {total_bytes / total_seconds / MIB:.3f} MiB/s")
+    bytes_per_second = total_bytes / total_seconds
+    print(f"Downloaded: {total_bytes} bytes ({total_bytes / MB:.3f} MB)")
+    print(f"Download speed: {bytes_per_second:.0f} B/s ({bytes_per_second / MB:.3f} MB/s)")
     return 0
 
 

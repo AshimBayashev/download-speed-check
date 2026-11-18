@@ -62,7 +62,10 @@ class SpeedTestTests(unittest.TestCase):
         self.assertIn("Requests: 10", output.getvalue())
         self.assertIn("Average request time: 1.000 s", output.getvalue())
         self.assertIn(f"Downloaded: {10 * len(BODY)} bytes", output.getvalue())
-        self.assertIn(f"Download speed: {len(BODY) / 1048576:.3f} MiB/s", output.getvalue())
+        self.assertIn(
+            f"Download speed: {len(BODY)} B/s ({len(BODY) / 1_000_000:.3f} MB/s)",
+            output.getvalue(),
+        )
 
     def test_stops_on_http_error(self):
         error = HTTPError("https://example.com/file", 500, "Server Error", {}, None)
